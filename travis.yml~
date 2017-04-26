@@ -11,5 +11,4 @@ python:
   - "pypy-5.3.1"
 # command to install dependencies
 # command to run tests
-script: 
-  - coverage run Test.py
+script: unittest
