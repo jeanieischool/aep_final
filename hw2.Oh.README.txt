@@ -1,0 +1,200 @@
+(1)  For the file http://www.gutenberg.org/cache/epub/1342/pg1342.txt what is the depth of your tree?  
+My program calculated a depth of 27
+
+What does that say about the number of operations to find a word? 
+What this says is that it could take a maximum of 27 iterations to find the node that has the data I'm looking for. This is because with each iternation, 
+I advance to the next level on the tree traversings its depth. You cannot traverse sideways on a binary tree, therefore each level represents an iternation
+of searching to find a word
+
+(2)  What would happen if the input to your program were sorted (as it was in HW 1)?
+If it was sorted as it was in HM1, it would be linearly arranged from least ascii value to greatest. This way we can perform the binary search of O log n
+by cutting the array in half with each iteration of our binary search.
+
+
+(3)  What are applications for binary search tree?  In what ways are they superior to lists?  In what ways are they inferior to lists?
+Trees are superior in that they give you room to build more logic into the searching process. The list binary searches we learning is HM1 simply keeps
+cutting the list in half until we find our word, but with a tree, there can be mulitiple scenarios of logic built into the tree to arrive at a certain
+value. For instance, if I built a program to help people decide what meat they should eat for dinner, I could make a binary tree that goes like 
+"allergic to fish or not?" then iterate to the next level "can eat red meat or not?" and so forth until each person can arrive at a leaf node that 
+represents the meat they should eat for dinner given their health contraints. They are superior to lists in this regard. However they are inferior
+to lists in speed as the number of elements grow. Binary searchs on lists are the fastest, processing our searches at O log n.
+
+
+(4)  Did you implement the extra credit (listed below)?  If so please explain your testing strategy on the extra credit.
+Extra credit:  For extra credit, modify "add(word)" so that as it adds words to the tree, it keeps the tree balanced through tree rotation, 
+so that every leaf node differs by at most one in depth.  See http://en.wikipedia.org/wiki/Tree_rotation for details.
+NO
+
+TESTING STRATEGY:
+
+The Git Hub structure we received was really helpful. The first thing I did was test that code to make sure I understand it. That ended up wasting a lot 
+of time because it kept giving me the wrong order and I realized it was because the code was comparing strings rather than integers. I realized that 
+this makes a different starting the triple digits. After I figured out of the tree is structured/built, I started working extracting the file. This 
+again was a lot harder than I thought as I forgot to remove empty elements and took me a long while to figure out that, that was the source of the problem.
+Also, certain functions I was using weren't behaving the way you would expect. For instance "_" wasn't evaluated by my method and one of my classmates had
+to point that out to me before I realized it. The recursion functions needed to count the level and words were a lot simpler than I thought it would be.
+At first my idea was to create a count variable for each side: left and right. Then make an if statement as to which one is higher. When I googled around,
+I found there was a "Max" function that came up which proved to be a lot simpler than the solution I was thinking of.The same concept worked for finding 
+depth as instead of the max function I just added the iterations on the right and left side. Ironically, it was the find function which I thought was so 
+simple that ended up taking the most time. I think it was because for some reason, it won't return a value but works in terms of printing the value I 
+needed. It was simple enough to put all the parts togther once I worked out these separate pieces. Below are some of my unsuccessful code...
+
+----------------------------------------------------------------------------------------------------------------------
+
+#---------------------------------------------------------
+# <NAME>
+# <EMAIL>
+# Homework #2
+# September 15, 2015
+# test.py
+# test
+
+#-----------------------------------------------------------
+
+
+#Attempt #7-17
+"""from BSTjo import *
+from hw2 import *
+import re
+
+def StoreFileArray(file_name):
+    
+    try:
+        nums=open(file_name).read().split()
+        
+        for i in range(len(nums)):
+            nums[i]=re.sub('\W',"",nums[i].lower())
+            nums[i]=re.sub('\d',"",nums[i]) #I didn't realize this doesn't capture "_" for some reason
+            #I didn't realize that this loop does not remove empty elements
+        
+
+    except IOError:
+        print file_name, "can't be opened." #This did not work right"
+    else:
+        return nums
+        
+def MakeTree(nums):
+    T=BSTree()
+    for i in range(len(nums)):
+        T.add(nums[i])
+    T.inOrderPrint()
+    print T.height() 
+    print T.size()
+    print T.find("and") #This messed up my numbers and kept giving me "None" Since the print command is already in the class, I shouldn't have typed this
+      
+
+from os.path import abspath               #Define file import
+f_path = abspath(raw_input("Enter file name:"))
+
+def main():  #Calling all the functions
+   F=StoreFileArray(f_path)
+   MakeTree(F)
+
+      
+
+
+
+main()  
+
+raise SystemExit"""
+
+"""
+_______________________________________________________________________________________________________
+ATTEMPT#1-7
+class Node:
+    #Constructor Node() creates node
+    def __init__(self,word):
+        self.word = word
+        self.right = None
+        self.left = None
+        self.count = 1
+
+class BSTree:
+    #Constructor BSTree() creates empty tree
+    def __init__(self, root=None):
+        self.root = root
+    
+    #These are "external functions" that will be called by your main program - I have given these to you =)
+    
+    #Find word in tree
+    def find(self, word):
+        return _find(self.root, word)
+    
+    #Add node to tree with word
+    def add(self, word):
+        if not self.root:
+            self.root = Node(word)
+            return
+        _add(self.root, word)
+
+    #Print in order entire tree
+    def inOrderPrint(self):
+        _inOrderPrint(self.root)
+
+    def size(self):
+        return _size(self.root)
+
+    def height(self):
+        return _height(self.root)
+
+
+#These are "internal functions" in the BSTree class - You need to create these!!!
+
+#Function to add node with word as word attribute
+def _add(root, word):
+    if root.word == word:
+        root.count +=1
+        return
+    if root.word > word:
+        if root.left == None:
+            root.left = Node(word)
+        else:
+            _add(root.left, word)
+    else:
+        if root.right == None:
+            root.right = Node(word)
+        else:
+            _add(root.right, word)
+
+def _find(root, word):
+    if root ==None:
+        print 0
+    if root.word == word:
+         return root.count #this would not work for some reason i still don't know
+    elif root.word > word:
+        if root.left == None:
+            print 0
+        else:
+            _find(root.left, word)
+    else:
+        if root.right == None:
+            print 0
+        else:
+            _find(root.right, word)
+
+
+
+def _size(root):
+    if not root:
+        return 0
+    else:
+        return 1+ _size(root.right) + _size(root.left)
+        
+
+#Get height of tree
+def _height(root):
+    if not root:
+        return 0
+    elif root.right==None and root.left==None:
+        return 0
+    else:
+        return 1+max(_height(root.left),_height(root.right))
+    
+#Function to print tree in order
+def _inOrderPrint(root):
+    if not root:
+        return
+    print root.word
+    print root.count
+    _inOrderPrint(root.left)
+    _inOrderPrint(root.right)
