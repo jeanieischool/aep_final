@@ -5,7 +5,7 @@ from BST_Module import *
 class TestStringMethods(unittest.TestCase):
 
     def test_upper(self):
-    	F = FileImport()
+    	F = FileImport('Test1.txt')
         self.assertEqual(F.StoreFileArray(), ['hello'])
 
     def test_isupper(self):

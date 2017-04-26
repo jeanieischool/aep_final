@@ -4,8 +4,8 @@ from os.path import abspath
 import re
 
 class FileImport:
-	def __init__(self):
-		self.path = abspath(raw_input("Enter file name:"))
+	def __init__(self, path):
+		self.path = path
 
 	def StoreFileArray(self):
 		return _StoreFileArray(self.path)
