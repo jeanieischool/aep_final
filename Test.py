@@ -4,7 +4,7 @@ from BST_Module import *
 
 class TestStringMethods(unittest.TestCase):
 
-    def OpenAndReadFileProperlyShouldEqualHello(self):
+    def test_upper(self):
     	F = FileImport('test1.txt')
         self.assertEqual(F.StoreFileArray(), ['hello'])
 
