@@ -25,6 +25,7 @@ def _StoreFileArray(path):
         
     except IOError:
         print "No such file" #This did not work right"
+        return ""
     else:
         return nums
 
