@@ -4,7 +4,7 @@ from os.path import abspath
 import re
 
 class FileImport:
-	def __init__(self):
+	def __init__(self, path):
 		self.path = path
         # self.path = abspath(raw_input("Enter file name:"))
 
