@@ -28,5 +28,5 @@ def _StoreFileArray(path):
     else:
         return nums
 
-F=FileImport()
-print F.StoreFileArray()
+# F=FileImport()
+# print F.StoreFileArray()
