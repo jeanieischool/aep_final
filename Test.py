@@ -8,7 +8,7 @@ class TestStringMethods(unittest.TestCase):
     	F = FileImport('test1.txt')
         self.assertEqual(F.StoreFileArray(), ['hello'])
 
-    def ErrorHandlingForFilenameShouldEqualNoSuchFile(self):
+    def test_errorHandling(self):
         F = FileImport('test1.txtffddde')
         self.assertEqual(F.StoreFileArray(), 'No such file')
 
