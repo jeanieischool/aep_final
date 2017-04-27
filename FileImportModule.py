@@ -3,7 +3,7 @@
 from os.path import abspath   
 import re
 import string
-import nltk
+
 
 class FileImport:
 	def __init__(self, path):
