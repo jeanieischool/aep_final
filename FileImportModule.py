@@ -13,8 +13,7 @@ class FileImport:
 
 
 def _StoreFileArray(path):
-    # file_name = abspath(raw_input("Enter file name:"))
-    # self=abspath(raw_input("Enter file name:"))
+    
     try:
         nums=open(path).read().split()
         
@@ -25,7 +24,7 @@ def _StoreFileArray(path):
         
 
     except IOError:
-        print path, "can't be opened." #This did not work right"
+        print path, "No such file" #This did not work right"
     else:
         return nums
 
