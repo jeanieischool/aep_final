@@ -18,7 +18,7 @@ def _StoreFileArray(path):
     
     try:
         nums=open(path).read().split()
-        [word.strip(string.punctuation) for word in nums.split(" ")]
+        nums=[word.strip(string.punctuation) for word in nums.split(" ")]
         
         # for i in range(len(nums)):
         #     nums[i]=re.sub('\W',"",nums[i].lower())
