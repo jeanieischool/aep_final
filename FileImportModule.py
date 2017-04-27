@@ -24,8 +24,8 @@ def _StoreFileArray(path):
             #I didn't realize that this loop does not remove empty elements
         
     except IOError:
-        print "No such file" #This did not work right"
-        return ""
+        # print "No such file" #This did not work right"
+        return "No such file"
     else:
         return nums
 
