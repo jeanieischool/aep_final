@@ -3,7 +3,8 @@ python:
   - "2.7"
 # command to install dependencies
 # command to run tests
+cache: pip
 before_install:
   - pip install -r requirements.txt
 script: 
-  - coverage run Test.py
+  - python Test.py

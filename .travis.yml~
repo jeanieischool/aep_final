@@ -4,6 +4,6 @@ python:
 # command to install dependencies
 # command to run tests
 before_install:
-  - pip install coverage
+  - pip install -r requirements.txt
 script: 
   - coverage run Test.py
