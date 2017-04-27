@@ -4,8 +4,8 @@ from os.path import abspath
 import re
 
 class FileImport:
-	def __init__(self, path):
-		self.path = path
+	def __init__(self):
+		self.path = abspath(raw_input("Enter file name:"))
 
 	def StoreFileArray(self):
 		return _StoreFileArray(self.path)
@@ -22,9 +22,10 @@ def _StoreFileArray(path):
             nums[i]=re.sub('\d',"",nums[i]) #I didn't realize this doesn't capture "_" for some reason
             #I didn't realize that this loop does not remove empty elements
         
-
     except IOError:
-        print path, "No such file" #This did not work right"
+        print "No such file" #This did not work right"
     else:
         return nums
 
+F=FileImport()
+print F.StoreFileArray()
