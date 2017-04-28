@@ -36,6 +36,9 @@ class BSTree:
     def inOrderPrint(self):
         return _inOrderPrint(self.root)
 
+    def inReversePrint(self):
+        return _inOrderPrint(self.root)
+
     def size(self):
         return _size(self.root)
 
@@ -107,7 +110,16 @@ def _inOrderPrint(root):
     jlist.append(_inOrderPrint(root.right))
     return jlist
     # _inOrderPrint(root.right)
-    
+
+def _inReversePrint(root):
+    if not root:
+        return
+    # print root.word
+    # print root.count
+    jlist = [root.word]
+    jlist.append(_inOrderPrint(root.right))
+    jlist.append(_inOrderPrint(root.left))
+    return jlist
 
 
     

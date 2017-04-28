@@ -77,6 +77,18 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         count = T.find('yo')
         self.assertEqual(count[0][0][0][0], 3)  
 
+    def test_inReverseTree(self):
+        F = FileImport('test4.txt')
+        nums=F.StoreFileArray()
+        T = BSTree()
+        for i in range(len(nums)):
+            T.add(nums[i])
+            
+        orderlist = T.inOrderPrint()
+
+        printlist = [orderlist[0], orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0], orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0]]
+        self.assertEqual(printlist, ['who', 'you', "yes", 'yo', 'zoo', 'are', 'one', 'tar', 'the', ])
+
 
     # def test_split(self):
     #     s = 'hello world'
