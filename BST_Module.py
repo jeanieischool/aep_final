@@ -104,7 +104,7 @@ def _inOrderPrint(root):
     # _inOrderPrint(root.right)
 
     mylist = [root.word]
-    for y,x in zip(_inOrderPrint(root.left),_inOrderPrint(root.right)):
-        mylist.append(str(x+y))
+    for y in zip(_inOrderPrint(root.left)):
+        mylist.append(str(y))
     print mylist
     
