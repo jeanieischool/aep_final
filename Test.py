@@ -45,15 +45,15 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         printlist = [orderlist[0], orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0], orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]]
         self.assertEqual(printlist, ['who', "are", 'one', 'tar', 'the', 'you', "yes", 'yo', 'zoo'])
 
-    def test_findWord(self):
+    def test_checkSize(self):
         F = FileImport('test5.txt')
         nums=F.StoreFileArray()
         T = BSTree()
         for i in range(len(nums)):
             T.add(nums[i])
         
-        return = T.find('yo')
-        self.assertEqual(self, 3)  
+        size = T.size()
+        self.assertEqual(size, 9)  
 
 
 

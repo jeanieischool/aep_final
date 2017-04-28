@@ -120,7 +120,8 @@ nums=F.StoreFileArray()
 T = BSTree()
 for i in range(len(nums)):
     T.add(nums[i])
-john=T.find('yo')
+john=T.size()
+
 print john
 
 
