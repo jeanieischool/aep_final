@@ -98,14 +98,10 @@ def _height(root):
 def _inOrderPrint(root):
     if not root:
         return
-    # print root.word
+    print root.word
     # print root.count
-    # _inOrderPrint(root.left)
-    # _inOrderPrint(root.right)
+    _inOrderPrint(root.left)
+    _inOrderPrint(root.right)
 
-    leftTreeList=_inOrderPrint(root.left)
-    mylist = [root.word]
-    for y in leftTreeList:
-        mylist.append(str(y))
-    print mylist
+
     

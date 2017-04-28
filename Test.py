@@ -26,7 +26,13 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         T = BSTree()
         for i in range(len(nums)):
             T.add(nums[i])
-        self.assertEqual(T.inOrderPrint(), ['who', "are", 'one', 'tar', 'the', 'you', "yes", 'yo', 'zoo'])
+            
+        orderlist = T.inOrderPrint()
+        testlist = []
+        for y in orderlist:
+            testlist.append(str(y))
+        
+        self.assertEqual(testlist, ['who', "are", 'one', 'tar', 'the', 'you', "yes", 'yo', 'zoo'])
 
 
 
