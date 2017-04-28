@@ -57,6 +57,17 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
 
 
 
+    def test_checkHeight(self):
+        F = FileImport('test5.txt')
+        nums=F.StoreFileArray()
+        T = BSTree()
+        for i in range(len(nums)):
+            T.add(nums[i])
+        
+        size = T.height()
+        self.assertEqual(size, 4)  
+
+
     # def test_split(self):
     #     s = 'hello world'
     #     self.assertEqual(s.split(), ['hello', 'world'])

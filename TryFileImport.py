@@ -120,7 +120,7 @@ nums=F.StoreFileArray()
 T = BSTree()
 for i in range(len(nums)):
     T.add(nums[i])
-john=T.size()
+john=T.height()
 
 print john
 
