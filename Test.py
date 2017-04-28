@@ -2,7 +2,7 @@ import unittest
 from FileImportModule import *
 from BST_Module import *
 
-class TestStringMethods(unittest.TestCase):
+class TestFileImportAndBinarySearchTree(unittest.TestCase):
 
     def test_fileRead(self):
     	F = FileImport('test1.txt')
@@ -19,6 +19,14 @@ class TestStringMethods(unittest.TestCase):
     def test_removeEmpty(self):
         F = FileImport('test3.txt')
         self.assertEqual(F.StoreFileArray(), ['hello', 'i', 'think', "you're", 'a', 'sister-in-law'])
+
+    def test_constructTree(self):
+        F = FileImport('test4.txt')
+        nums=F.StoreFileArray()
+        T = BSTree()
+            for i in range(len(nums)):
+                T.add(nums[i])
+        self.assertEqual(T.inOrderPrint(), ['the', 'tar', 'one', "are", 'who', 'you', "yes", 'yo', 'zoo'])
 
 
 
