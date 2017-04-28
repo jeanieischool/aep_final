@@ -14,11 +14,9 @@ class TestStringMethods(unittest.TestCase):
 
     def test_textSanitation(self):
         F = FileImport('test2.txt')
-        self.assertEqual(F.StoreFileArray(), ['','', 'hello', 'i', 'think', "you're", 'a', 'sister-in-law'])
-
-    def test_removeEmpty(self):
-        F = FileImport('test2.txt')
         self.assertEqual(F.StoreFileArray(), ['hello', 'i', 'think', "you're", 'a', 'sister-in-law'])
+
+
 
     # def test_split(self):
     #     s = 'hello world'
