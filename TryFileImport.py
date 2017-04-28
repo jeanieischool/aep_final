@@ -32,7 +32,7 @@ class BSTree:
     
     #Find word in tree
     def find(self, word):
-        return _find(self.root, word)
+        _find(self.root, word)
 
     #Print in order entire tree
     def inOrderPrint(self):
@@ -48,7 +48,7 @@ class BSTree:
 def _add(root, word):
     if root.word == word:
         root.count +=1
-        return
+        return root.count
     if root.word > word:
         if root.left == None:
             root.left = Node(word)
@@ -65,7 +65,9 @@ def _find(root, word):
     if not root:
         print 0
     if root.word == word:
-         print root.count
+        print root.count
+        # root.count +=1
+        # return root.count
     elif root.word > word:
         if root.left == None:
             print 0
@@ -118,8 +120,10 @@ nums=F.StoreFileArray()
 T = BSTree()
 for i in range(len(nums)):
     T.add(nums[i])
+john=T.find('yo')
+print john
 
-countlist = T.find('yo')
+
 
 # orderlist = T.inOrderPrint()
 # s=filter(None, printlist)

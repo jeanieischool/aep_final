@@ -48,12 +48,12 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
     def test_findWord(self):
         F = FileImport('test5.txt')
         nums=F.StoreFileArray()
-        T = BSTree('yo')
+        T = BSTree()
         for i in range(len(nums)):
             T.add(nums[i])
         
-        # countlist = T.find()
-        self.assertEqual(T.find(), 3)  
+        countlist = T.find()
+        self.assertEqual(self, 3)  
 
 
 
