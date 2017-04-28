@@ -6,12 +6,12 @@ import string
 
 
 class FileImport:
-	def __init__(self, path):
-		self.path = path
-        # self.path = abspath(raw_input("Enter file name:"))
+    def __init__(self):
+        # self.path = path
+        self.path = abspath(raw_input("Enter file name:"))
 
-	def StoreFileArray(self):
-		return _StoreFileArray(self.path)
+    def StoreFileArray(self):
+        return _StoreFileArray(self.path)
 
 
 
@@ -26,9 +26,6 @@ def _StoreFileArray(path):
             
         for i in range(len(nums)):
             nums[i]=nums[i].lower()
-        
-        # for i in range(len(nums)):
-        #     nums[i]=re.sub('\W',"",nums[i].lower())
         #     nums[i]=re.sub('\d',"",nums[i]) #I didn't realize this doesn't capture "_" for some reason
 
         
@@ -38,5 +35,5 @@ def _StoreFileArray(path):
     else:
         return nums
 
-# F=FileImport()
-# print F.StoreFileArray()
+F=FileImport()
+print F.StoreFileArray()
