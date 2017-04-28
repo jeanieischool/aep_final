@@ -33,7 +33,7 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         printlist = [orderlist[0], orderlist[1][0]]
         self.assertEqual(printlist, ['who', "are"])
 
-    def test_constructTree(self):
+    def test_inOrderTree(self):
         F = FileImport('test4.txt')
         nums=F.StoreFileArray()
         T = BSTree()
@@ -52,8 +52,8 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         for i in range(len(nums)):
             T.add(nums[i])
         
-        countlist = T.find('yo')
-        self.assertEqual(countlist, '3')  
+        
+        self.assertEqual(countlist = T.find('yo'), 3)  
 
 
 
