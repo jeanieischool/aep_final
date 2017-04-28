@@ -103,8 +103,9 @@ def _inOrderPrint(root):
     # _inOrderPrint(root.left)
     # _inOrderPrint(root.right)
 
+    leftTreeList=_inOrderPrint(root.left)
     mylist = [root.word]
-    for y in _inOrderPrint(root.left):
+    for y in leftTreeList:
         mylist.append(str(y))
     print mylist
     
