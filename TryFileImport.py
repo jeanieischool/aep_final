@@ -1,40 +1,138 @@
-#FileImport
+# -*- coding: utf-8-sig -*-
+#---------------------------------------------------------
+# <NAME>
+# <EMAIL>
+# Homework #2
+# September 15, 2015
+# BST.py
+# BST
+#---------------------------------------------------------
+from FileImportModule import *
+import itertools
 
-from os.path import abspath   
-import re
-import string
+class Node:
+    #Constructor Node() creates node
+    def __init__(self,word):
+        self.word = word
+        self.right = None
+        self.left = None
+        self.count = 1
 
-
-class FileImport:
-    def __init__(self):
-        # self.path = path
-        self.path = abspath(raw_input("Enter file name:"))
-
-    def StoreFileArray(self):
-        return _StoreFileArray(self.path)
-
-
-
-def _StoreFileArray(path):
-    
-    try:
-        nums=open(path).read().split()
-        uni2ascii = {ord('\xe2\x80\x99'.decode('utf-8')): ord("'")}    
-        nums=[word.decode('utf-8').translate(uni2ascii).encode('ascii') for word in nums]
-        #for line in nums:
-        nums=[word.strip(string.punctuation) for word in nums] #.split(" ")]
-            
-        for i in range(len(nums)):
-            nums[i]=nums[i].lower()
-        #     nums[i]=re.sub('\d',"",nums[i]) #I didn't realize this doesn't capture "_" for some reason
-
-        nums=filter(None, nums)
+class BSTree:
+    #Constructor BSTree() creates empty tree
+    def __init__(self, root=None):
+        self.root = root
         
-    except IOError:
-        # print "No such file" #This did not work right"
-        return "No such file"
-    else:
-        return nums
+    #Add node to tree with word
+    def add(self, word):
+        if not self.root:
+            self.root = Node(word)
+            return
+        _add(self.root, word)
+    
+    #Find word in tree
+    def find(self, word):
+        return _find(self.root, word)
 
-F=FileImport()
-print F.StoreFileArray()
+    #Print in order entire tree
+    def inOrderPrint(self):
+        return _inOrderPrint(self.root)
+
+    def size(self):
+        return _size(self.root)
+
+    def height(self):
+        return _height(self.root)
+
+#Function to add node with word as word attribute
+def _add(root, word):
+    if root.word == word:
+        root.count +=1
+        return
+    if root.word > word:
+        if root.left == None:
+            root.left = Node(word)
+        else:
+            _add(root.left, word)
+    else:
+        if root.right == None:
+            root.right = Node(word)
+        else:
+            _add(root.right, word)
+
+#Function to find word
+def _find(root, word):
+    if not root:
+        print 0
+    if root.word == word:
+         print root.count,
+    elif root.word > word:
+        if root.left == None:
+            print 0
+        else:
+            _find(root.left, word)
+    else:
+        if root.right == None:
+            print 0
+        else:
+            _find(root.right, word)
+
+
+#Get size of tree
+def _size(root):
+    if not root:
+        return 0
+    else:
+        return 1+ _size(root.right) + _size(root.left)
+        
+
+#Get height of tree
+def _height(root):
+    if not root:
+        return 0
+    elif root.right==None and root.left==None:
+        return 0
+    else:
+        return 1+max(_height(root.left),_height(root.right))
+    
+
+#Function to print tree in order
+def _inOrderPrint(root):
+    if not root:
+        return
+    jlist = [root.word]
+    # jlist.append(root.word)
+    # print root.word
+    # print root.count
+    # _inOrderPrint(root.left)
+    
+    jlist.append(_inOrderPrint(root.left))
+    jlist.append(_inOrderPrint(root.right))
+    # _inOrderPrint(root.right)
+    # jlist.append(_inOrderPrint(root.right))
+    return jlist
+F = FileImport('test4.txt')
+nums=F.StoreFileArray()
+T = BSTree()
+for i in range(len(nums)):
+        T.add(nums[i])
+orderlist = T.inOrderPrint()
+# s=filter(None, printlist)
+# s=[x for x in printlist if x=='None']
+# print printlist
+
+print orderlist[0]
+print orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0]
+print orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]
+
+# outputlist=[]
+# for values in printlist:
+#     outputlist.append(values[0])
+
+# print(outputlist) 
+
+# testlist = []
+# testlist = itertools.repeat(printlist, 5)
+# print testlist
+
+

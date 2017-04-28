@@ -1,6 +1,7 @@
 import unittest
 from FileImportModule import *
 from BST_Module import *
+import itertools
 
 class TestFileImportAndBinarySearchTree(unittest.TestCase):
 
@@ -28,11 +29,8 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
             T.add(nums[i])
             
         orderlist = T.inOrderPrint()
-        testlist = []
-        for y in orderlist:
-            testlist.append(str(y))
         
-        self.assertEqual(testlist, ['who', "are", 'one', 'tar', 'the', 'you', "yes", 'yo', 'zoo'])
+        self.assertEqual([orderlist[0], orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0], orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]], ['who', "are", 'one', 'tar', 'the', 'you', "yes", 'yo', 'zoo'])
 
 
 
