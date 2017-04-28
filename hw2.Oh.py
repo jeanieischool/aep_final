@@ -32,9 +32,9 @@ def main(nums):
         T.add(nums[i])
     # Functions for use
     # T.find(word)
-    # T.find(word)
+    print T.find(word)
     # T.size()
-    print T.height()
+    # print T.height()
     # print T.inOrderPrint()
  
     

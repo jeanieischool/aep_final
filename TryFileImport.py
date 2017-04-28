@@ -65,7 +65,7 @@ def _find(root, word):
     if not root:
         print 0
     if root.word == word:
-         print root.count,
+         print root.count
     elif root.word > word:
         if root.left == None:
             print 0
@@ -76,7 +76,7 @@ def _find(root, word):
             print 0
         else:
             _find(root.right, word)
-
+    # return root.count
 
 #Get size of tree
 def _size(root):
@@ -111,20 +111,25 @@ def _inOrderPrint(root):
     # _inOrderPrint(root.right)
     # jlist.append(_inOrderPrint(root.right))
     return jlist
-F = FileImport('test4.txt')
+
+
+F = FileImport('test5.txt')
 nums=F.StoreFileArray()
 T = BSTree()
 for i in range(len(nums)):
-        T.add(nums[i])
-orderlist = T.inOrderPrint()
+    T.add(nums[i])
+
+countlist = T.find('yo')
+
+# orderlist = T.inOrderPrint()
 # s=filter(None, printlist)
 # s=[x for x in printlist if x=='None']
 # print printlist
 
 
-print orderlist[0]
-print orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0]
-print orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]
+# print orderlist[0]
+# print orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0]
+# print orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]
 
 # outputlist=[]
 # for values in printlist:

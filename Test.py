@@ -51,7 +51,8 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         T = BSTree()
         for i in range(len(nums)):
             T.add(nums[i])
-        self.assertEqual(T.find('yo'), ['yo'])  
+        countlist = T.find('yo')
+        self.assertEqual(countlist, 3)  
 
 
 
