@@ -24,8 +24,8 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         F = FileImport('test4.txt')
         nums=F.StoreFileArray()
         T = BSTree()
-            for i in range(len(nums)):
-                T.add(nums[i])
+        for i in range(len(nums)):
+            T.add(nums[i])
         self.assertEqual(T.inOrderPrint(), ['the', 'tar', 'one', "are", 'who', 'you', "yes", 'yo', 'zoo'])
 
 
