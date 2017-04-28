@@ -99,7 +99,7 @@ def _inOrderPrint(root):
     if not root:
         return
     TreeList = []
-    TreeList = root.word
+    TreeList = TreeList.append(root.word)
     # print root.count
     TreeList = TreeList.append(_inOrderPrint(root.left))
     TreeList = TreeList.append(_inOrderPrint(root.right))
