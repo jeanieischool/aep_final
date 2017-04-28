@@ -29,7 +29,8 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
             T.add(nums[i])
             
         orderlist = T.inOrderPrint()
-        printlist = [orderlist[0], orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0], orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]]
+        printlist = [orderlist[0], orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0], orderlist[2][0], 
+        orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]]
         self.assertEqual(printlist, ['who', "are", 'one', 'tar', 'the', 'you', "yes", 'yo', 'zoo'])
 
 
