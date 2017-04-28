@@ -98,9 +98,12 @@ def _height(root):
 def _inOrderPrint(root):
     if not root:
         return
-    print root.word
+    # print root.word
     # print root.count
-    return _inOrderPrint(root.left)
+    jlist = [root.word]
+    jlist.append(_inOrderPrint(root.left))
+    jlist.append(_inOrderPrint(root.right))
+    return jlist
     # _inOrderPrint(root.right)
     
 
