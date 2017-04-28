@@ -34,7 +34,7 @@ class BSTree:
 
     #Print in order entire tree
     def inOrderPrint(self):
-        _inOrderPrint(self.root)
+        return _inOrderPrint(self.root)
 
     def size(self):
         return _size(self.root)
