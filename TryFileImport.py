@@ -28,6 +28,7 @@ def _StoreFileArray(path):
             nums[i]=nums[i].lower()
         #     nums[i]=re.sub('\d',"",nums[i]) #I didn't realize this doesn't capture "_" for some reason
 
+        nums=filter(None, nums)
         
     except IOError:
         # print "No such file" #This did not work right"
