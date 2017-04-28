@@ -100,7 +100,8 @@ def _inOrderPrint(root):
         return
     print root.word
     # print root.count
-    return zip(_inOrderPrint(root.left), _inOrderPrint(root.right))
+    return _inOrderPrint(root.left)
+    # _inOrderPrint(root.right)
     
 
 
