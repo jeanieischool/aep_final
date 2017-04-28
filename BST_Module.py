@@ -20,17 +20,17 @@ class BSTree:
     #Constructor BSTree() creates empty tree
     def __init__(self, root=None):
         self.root = root
-    
-    #Find word in tree
-    def find(self, word):
-        return _find(self.root, word)
-    
+        
     #Add node to tree with word
     def add(self, word):
         if not self.root:
             self.root = Node(word)
             return
         _add(self.root, word)
+    
+    #Find word in tree
+    def find(self, word):
+        return _find(self.root, word)
 
     #Print in order entire tree
     def inOrderPrint(self):
