@@ -52,7 +52,7 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         for i in range(len(nums)):
             T.add(nums[i])
         
-        countlist = T.find('yo')
+        return = T.find('yo')
         self.assertEqual(self, 3)  
 
 
