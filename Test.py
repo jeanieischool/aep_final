@@ -67,6 +67,16 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
         size = T.height()
         self.assertEqual(size, 4)  
 
+    def test_wordCount(self):
+        F = FileImport('test5.txt')
+        nums=F.StoreFileArray()
+        T = BSTree()
+        for i in range(len(nums)):
+            T.add(nums[i])
+        
+        count = T.find('yo')
+        self.assertEqual(count[0][0][0][0], 3)  
+
 
     # def test_split(self):
     #     s = 'hello world'

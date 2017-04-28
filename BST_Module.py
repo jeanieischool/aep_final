@@ -61,20 +61,22 @@ def _add(root, word):
 #Function to find word
 def _find(root, word):
     if not root:
-        print 0
+        return 0
     if root.word == word:
-         print root.count
+        flist=[root.count]
+        return flist
     elif root.word > word:
         if root.left == None:
-            print 0
+            return 0
         else:
-            _find(root.left, word)
+            flist=[_find(root.left, word)]
+            return flist
     else:
         if root.right == None:
-            print 0
+            return 0
         else:
-            _find(root.right, word)
-
+            flist=[_find(root.right, word)]
+            return flist
 
 #Get size of tree
 def _size(root):

@@ -9,6 +9,7 @@
 #---------------------------------------------------------
 from FileImportModule import *
 import itertools
+import re
 
 class Node:
     #Constructor Node() creates node
@@ -32,7 +33,7 @@ class BSTree:
     
     #Find word in tree
     def find(self, word):
-        _find(self.root, word)
+        return _find(self.root, word)
 
     #Print in order entire tree
     def inOrderPrint(self):
@@ -63,22 +64,22 @@ def _add(root, word):
 #Function to find word
 def _find(root, word):
     if not root:
-        print 0
+        return 0
     if root.word == word:
-        print root.count
-        # root.count +=1
-        # return root.count
+        flist=[root.count]
+        return flist
     elif root.word > word:
         if root.left == None:
-            print 0
+            return 0
         else:
-            _find(root.left, word)
+            flist=[_find(root.left, word)]
+            return flist
     else:
         if root.right == None:
-            print 0
+            return 0
         else:
-            _find(root.right, word)
-    # return root.count
+            flist=[_find(root.right, word)]
+            return flist
 
 #Get size of tree
 def _size(root):
@@ -120,9 +121,12 @@ nums=F.StoreFileArray()
 T = BSTree()
 for i in range(len(nums)):
     T.add(nums[i])
-john=T.height()
+john=T.find('yo')
 
-print john
+
+
+# my_list = re.sub('\d',"",john[0])
+print john[0][0][0][0]
 
 
 
