@@ -63,7 +63,7 @@ def _find(root, word):
     if not root:
         print 0
     if root.word == word:
-         print root.count,
+         print root.count
     elif root.word > word:
         if root.left == None:
             print 0
