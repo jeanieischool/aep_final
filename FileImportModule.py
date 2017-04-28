@@ -26,7 +26,7 @@ def _StoreFileArray(path):
             
         for i in range(len(nums)):
             nums[i]=nums[i].lower()
-        
+        nums=filter(None, nums)
         # for i in range(len(nums)):
         #     nums[i]=re.sub('\W',"",nums[i].lower())
         #     nums[i]=re.sub('\d',"",nums[i]) #I didn't realize this doesn't capture "_" for some reason
