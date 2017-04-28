@@ -121,6 +121,7 @@ orderlist = T.inOrderPrint()
 # s=[x for x in printlist if x=='None']
 # print printlist
 
+
 print orderlist[0]
 print orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0]
 print orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]

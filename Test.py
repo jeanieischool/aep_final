@@ -30,10 +30,28 @@ class TestFileImportAndBinarySearchTree(unittest.TestCase):
             
         orderlist = T.inOrderPrint()
 
+        printlist = [orderlist[0], orderlist[1][0]]
+        self.assertEqual(printlist, ['who', "are"])
+
+    def test_constructTree(self):
+        F = FileImport('test4.txt')
+        nums=F.StoreFileArray()
+        T = BSTree()
+        for i in range(len(nums)):
+            T.add(nums[i])
+            
+        orderlist = T.inOrderPrint()
+
         printlist = [orderlist[0], orderlist[1][0], orderlist[1][2][0], orderlist[1][2][2][0], orderlist[1][2][2][2][0], orderlist[2][0], orderlist[2][1][0], orderlist[2][1][2][0], orderlist[2][2][0]]
         self.assertEqual(printlist, ['who', "are", 'one', 'tar', 'the', 'you', "yes", 'yo', 'zoo'])
 
-
+   def test_findWord(self):
+        F = FileImport('test4.txt')
+        nums=F.StoreFileArray()
+        T = BSTree()
+        for i in range(len(nums)):
+            T.add(nums[i])
+        self.assertEqual(T.find('yo'), ['yo'])  
 
 
 
